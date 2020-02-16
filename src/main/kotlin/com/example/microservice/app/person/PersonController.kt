@@ -9,7 +9,7 @@ import java.util.*
 
 @RestController
 @RequestMapping("/people")
-class Controller(private val repository: PersonService) {
+class PersonController(private val repository: PersonService) {
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: String): Optional<Person> = repository.getById(id)
