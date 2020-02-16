@@ -8,9 +8,9 @@ import org.mapstruct.Mappings
 @Mapper
 interface PersonUpdater {
     @Mappings(
-            Mapping(target = "id", ignore = true),
-            Mapping(target = "createdDate", ignore = true),
-            Mapping(target = "modifiedDate", ignore = true)
+        Mapping(target = "id", ignore = true),
+        Mapping(target = "createdDate", ignore = true),
+        Mapping(target = "modifiedDate", ignore = true)
     )
     fun update(@MappingTarget target: Person, source: Person): Person
 }
