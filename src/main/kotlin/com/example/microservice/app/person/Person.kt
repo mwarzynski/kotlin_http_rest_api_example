@@ -1,3 +1,7 @@
 package com.example.microservice.app.person
 
-data class Person(var id: Int?, var name: String, var age: Int?)
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Field
+
+data class Person(@Id var id: String? = null,
+                  @Field var name: String? = null)
