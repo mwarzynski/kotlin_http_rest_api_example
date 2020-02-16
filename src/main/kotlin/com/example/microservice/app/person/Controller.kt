@@ -1,6 +1,5 @@
 package com.example.microservice.app.person
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
@@ -10,10 +9,7 @@ import java.util.*
 
 @RestController
 @RequestMapping("/people")
-class Controller {
-
-    @Autowired
-    lateinit var repository: PersonRepository
+class Controller(private val repository: PersonRepository) {
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: String): Optional<Person> = repository.findById(id)
