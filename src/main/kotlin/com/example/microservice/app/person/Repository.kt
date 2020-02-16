@@ -1,5 +1,5 @@
 package com.example.microservice.app.person
 
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 
-interface PersonRepository : CrudRepository<Person, String>
+interface PersonRepository : PagingAndSortingRepository<Person, String>

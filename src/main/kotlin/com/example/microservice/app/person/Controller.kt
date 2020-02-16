@@ -1,8 +1,9 @@
 package com.example.microservice.app.person
 
-import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.MediaType
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
@@ -18,7 +19,7 @@ class Controller {
     fun findById(@PathVariable id: String): Optional<Person> = repository.findById(id)
 
     @GetMapping
-    fun findAll(): Iterable<Person> = repository.findAll()
+    fun findAll(@PageableDefault pageable: Pageable): Page<Person> = repository.findAll(pageable)
 
     @PostMapping
     fun add(@RequestBody person: Person): Person = repository.save(person)
