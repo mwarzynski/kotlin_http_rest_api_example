@@ -15,14 +15,15 @@ interface CourseService {
 
 @Service
 class CourseServiceImpl(
-        private val repository: CourseRepository
+        private val repository: CourseRepository,
+        private val updater: CourseUpdater
 ) : CourseService {
     override fun getAll(pageable: Pageable): Page<Course> = repository.findAll(pageable)
     override fun getById(id: String): Optional<Course> = repository.findById(id)
     override fun create(course: Course): Course = repository.save(course)
     override fun update(id: String, course: Course): Optional<Course> {
         return getById(id).map {
-            it.name = course.name
+            updater.update(it, course)
             repository.save(it)
         }
     }
