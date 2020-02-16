@@ -8,20 +8,20 @@ import java.util.*
 
 @RestController
 @RequestMapping("/courses")
-class CourseController(private val repository: CourseService) {
+class CourseController(private val service: CourseService) {
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: String): Optional<Course> = repository.getById(id)
+    fun getById(@PathVariable id: String): Optional<Course> = service.getById(id)
 
     @GetMapping
-    fun getAll(@PageableDefault pageable: Pageable): Page<Course> = repository.getAll(pageable)
+    fun getAll(@PageableDefault pageable: Pageable): Page<Course> = service.getAll(pageable)
 
     @PostMapping
-    fun create(@RequestBody course: Course): Course = repository.create(course)
+    fun create(@RequestBody course: Course): Course = service.create(course)
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: String, @RequestBody course: Course): Course = repository.update(id, course).get()
+    fun update(@PathVariable id: String, @RequestBody course: Course): Course = service.update(id, course).get()
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: String) = repository.delete(id)
+    fun delete(@PathVariable id: String) = service.delete(id)
 }
