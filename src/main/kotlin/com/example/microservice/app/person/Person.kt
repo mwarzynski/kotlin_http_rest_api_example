@@ -9,5 +9,5 @@ import java.time.LocalDateTime
 data class Person(@Id var id: String? = null,
                   @Field var name: String? = null,
                   @CreatedDate var createdDate: LocalDateTime?,
-                  @LastModifiedDate var lastModifiedDate: LocalDateTime?
+                  @LastModifiedDate var modifiedDate: LocalDateTime?
 )

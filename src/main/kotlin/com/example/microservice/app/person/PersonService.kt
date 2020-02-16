@@ -15,14 +15,15 @@ interface PersonService {
 
 @Service
 class PersonServiceImpl(
-        private val repository: PersonRepository
+        private val repository: PersonRepository,
+        private val updater: PersonUpdater
 ) : PersonService {
     override fun getAll(pageable: Pageable): Page<Person> = repository.findAll(pageable)
     override fun getById(id: String): Optional<Person> = repository.findById(id)
     override fun create(person: Person): Person = repository.save(person)
     override fun update(id: String, person: Person): Optional<Person> {
         return getById(id).map {
-            it.name = person.name
+            updater.update(it, person)
             repository.save(it)
         }
     }
