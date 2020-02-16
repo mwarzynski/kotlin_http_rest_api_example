@@ -1,4 +1,4 @@
-package com.example.microservice.app
+package com.example.microservice.app.person
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/people")
-class PersonController {
+class Controller {
 
     @Autowired
-    lateinit var repository: PersonRepository
+    lateinit var repository: Repository
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Int): Person? = repository.findById(id)

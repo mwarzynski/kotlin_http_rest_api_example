@@ -1,9 +1,9 @@
-package com.example.microservice.app
+package com.example.microservice.app.person
 
 import org.springframework.stereotype.Repository
 
 @Repository
-class PersonRepository {
+class Repository {
     val people: MutableList<Person> = ArrayList()
 
     fun findById(id: Int): Person? {
