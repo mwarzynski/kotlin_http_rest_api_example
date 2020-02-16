@@ -1,6 +1,5 @@
 package com.example.microservice.app.person
 
-import com.example.microservice.app.course.Course
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
@@ -12,5 +11,5 @@ data class Person(@Id var id: String? = null,
                   @Field var name: String? = null,
                   @CreatedDate var createdDate: LocalDateTime?,
                   @LastModifiedDate var modifiedDate: LocalDateTime?,
-                  @Field var courses: List<Course>? = ArrayList()
+                  @Field var courses: List<String>? = ArrayList()
 )
