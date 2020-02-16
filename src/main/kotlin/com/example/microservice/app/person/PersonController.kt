@@ -12,7 +12,7 @@ import java.util.*
 class PersonController(private val service: PersonService) {
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: String): Optional<Person> = service.getById(id)
+    fun getById(@PathVariable id: String): Optional<Person> = service.get(id)
 
     @GetMapping
     fun getAll(@PageableDefault pageable: Pageable): Page<Person> = service.getAll(pageable)

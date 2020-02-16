@@ -24,4 +24,10 @@ class CourseController(private val service: CourseService) {
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: String) = service.delete(id)
+
+    @PostMapping("/{id}/student/{studentIds}")
+    fun studentAdd(@PathVariable id: String, @PathVariable studentIds: List<String>) = service.studentsAdd(id, studentIds)
+
+    @DeleteMapping("/{id}/student/{studentIds}")
+    fun studentDelete(@PathVariable id: String, @PathVariable studentIds: List<String>) = service.studentsDelete(id, studentIds)
 }
