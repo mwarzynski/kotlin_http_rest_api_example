@@ -23,6 +23,9 @@ dependencies {
     kapt("org.mapstruct:mapstruct-processor:1.3.1.Final")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    }
 }
 
 kapt {
